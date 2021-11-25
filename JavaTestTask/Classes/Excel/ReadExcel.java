@@ -36,8 +36,7 @@ public class ReadExcel {
                 data[rowIndex][0] = table; 
                 rowIndex++;
             }
-
-            recordset.close();
+      		recordset.close();
             connection.close();
             return data;
 
