@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/mac/testTaskJava/testTask">
+        <classes>
+            <class name="ExcelToDataProvider"/>
+            <class name="ExtractExcelTask2"/>
+            <class name="TestTask1"/>
+            <class name="TestTask2"/>
+            <class name="TestTask3"/>
+        </classes>
+    </test>
+</suite>
