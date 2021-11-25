@@ -8,18 +8,18 @@ import java.util.Hashtable;
 public class ReadExcel {
         static Fillo fillo;
         static Connection connection;
-        final String excelFilePath = "TASK2.xlsx"; // excel file name
+        final String excelFilePath = "TASK2.xlsx"; 
         final String connectionString;
         final String dataStartRow;
 
         public ReadExcel(int startRow) {
             this.connectionString = "SELECT * FROM ForTask3Opt";
-            this.dataStartRow = Integer.toString(startRow); // starting row index for sub table
+            this.dataStartRow = Integer.toString(startRow);
         }
 
         public Object[][] getExcelData() throws FilloException {
-            System.setProperty("ROW", dataStartRow);// Table start row
-            System.setProperty("COLUMN", "1");// Table start column
+            System.setProperty("ROW", dataStartRow);
+            System.setProperty("COLUMN", "1");
 
             fillo = new Fillo();
             connection = fillo.getConnection(excelFilePath);
@@ -33,7 +33,7 @@ public class ReadExcel {
                 for (String strColumn : recordset.getFieldNames()) {
                     table.put(strColumn, recordset.getField(strColumn.toString()));
                 }
-                data[rowIndex][0] = table; // putting hash table into Object array
+                data[rowIndex][0] = table; 
                 rowIndex++;
             }
 
