@@ -9,16 +9,20 @@ import java.io.InputStream;
 
 public class ExtractExcelTask2 {
 
+    Recordset rs;
+
     @Test
     public void extract() {
         try {
+            System.setProperty("ROW", "1");
+            System.setProperty("COLUMN", "1");
             Fillo fillo = new Fillo();
             Connection con = fillo.getConnection("TASK2.xlsx");
-            String query1 = "SELECT * FROM Sheet1";
-            Recordset rs = con.executeQuery(query1);
+            String query1 = "SELECT * FROM Task2From";
+            rs = con.executeQuery(query1);
             while (rs.next()) {
-                String result = "("+rs.getField("result")+")";
-                String query2 = " INSERT INTO Sheet2(result) VALUES"+result;
+                String result = "('"+rs.getField("result")+"')";
+                String query2 = "INSERT INTO Task2To(result) VALUES"+result+"";
                 con.executeUpdate(query2);
             }
             rs.close();
